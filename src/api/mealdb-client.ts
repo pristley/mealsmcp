@@ -11,8 +11,9 @@ import {
   validateHttpStatus,
   ValidationError,
 } from "../utils/validation.js";
+import { config } from "../config.js";
 
-const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
+const BASE_URL = config.mealdbApiUrl;
 
 // Type definitions for API responses
 interface Meal {

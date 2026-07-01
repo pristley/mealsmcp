@@ -3,6 +3,8 @@
  * Validates and sanitizes inputs before API calls
  */
 
+import { config } from "../config.js";
+
 /**
  * Custom validation error class
  */
@@ -22,7 +24,7 @@ export class ValidationError extends Error {
 export function validateString(
   value: unknown,
   fieldName: string,
-  maxLength: number = 100
+  maxLength: number = config.maxQueryLength
 ): string {
   if (typeof value !== "string") {
     throw new ValidationError(

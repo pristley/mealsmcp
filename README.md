@@ -245,6 +245,9 @@ npm run typecheck
 # Development (with ts-node)
 npm run dev
 
+# Test all tools with sample requests
+npm test
+
 # Build
 npm run build
 
