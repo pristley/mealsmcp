@@ -5,6 +5,12 @@ import {
   Tool,
 } from "@modelcontextprotocol/sdk/types.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { handleSearchMeal, handleRandomMeal } from "./tools/search-handler.js";
+import {
+  handleMealsByCategory,
+  handleMealsByIngredient,
+} from "./tools/filter-handler.js";
+import { handleGetMealDetails } from "./tools/details-handler.js";
 
 /**
  * MCP Server for Meals API
@@ -146,69 +152,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-/**
- * Tool handler stubs - implement handlers in src/tools/
- */
-
-async function handleSearchMeal(args: { name: string }) {
-  // TODO: Implement search_meal handler
-  return {
-    content: [
-      {
-        type: "text",
-        text: `Search meal handler not implemented yet. Query: ${args.name}`,
-      },
-    ],
-  };
-}
-
-async function handleRandomMeal() {
-  // TODO: Implement random_meal handler
-  return {
-    content: [
-      {
-        type: "text",
-        text: "Random meal handler not implemented yet",
-      },
-    ],
-  };
-}
-
-async function handleMealsByCategory(args: { category: string }) {
-  // TODO: Implement meals_by_category handler
-  return {
-    content: [
-      {
-        type: "text",
-        text: `Meals by category handler not implemented yet. Category: ${args.category}`,
-      },
-    ],
-  };
-}
-
-async function handleMealsByIngredient(args: { ingredient: string }) {
-  // TODO: Implement meals_by_ingredient handler
-  return {
-    content: [
-      {
-        type: "text",
-        text: `Meals by ingredient handler not implemented yet. Ingredient: ${args.ingredient}`,
-      },
-    ],
-  };
-}
-
-async function handleGetMealDetails(args: { meal_id: string }) {
-  // TODO: Implement get_meal_details handler
-  return {
-    content: [
-      {
-        type: "text",
-        text: `Get meal details handler not implemented yet. Meal ID: ${args.meal_id}`,
-      },
-    ],
-  };
-}
 
 /**
  * Start the MCP server
